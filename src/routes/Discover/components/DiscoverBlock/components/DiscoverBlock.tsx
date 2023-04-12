@@ -4,7 +4,15 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import DiscoverItem from './DiscoverItem';
 import '../styles/_discover-block.scss';
 
-const scrollContainer: any = (id: any, { isNegative }: any = {}) => {
+interface DiscoverBlockProps {
+  text: string;
+  id: string;
+  data: any[];
+  imagesKey?: string;
+}
+
+// TODO: hanya untuk test, nanti diubah tipe datanya
+const scrollContainer = (id: any, { isNegative }: any = {}) => {
   return () => {
     const scrollableContainer: any = document.getElementById(id);
     const amount = isNegative ? -scrollableContainer.offsetWidth : scrollableContainer.offsetWidth;
@@ -13,7 +21,7 @@ const scrollContainer: any = (id: any, { isNegative }: any = {}) => {
   };
 }
 
-const DiscoverBlock: React.FC<any> = ({ text, id, data, imagesKey = 'images' }) => {
+const DiscoverBlock: React.FC<DiscoverBlockProps> = ({ text, id, data, imagesKey = 'images' }) => {
   return (
     <div className="discover-block">
       <div className="discover-block__header">
@@ -35,7 +43,7 @@ const DiscoverBlock: React.FC<any> = ({ text, id, data, imagesKey = 'images' }) 
         }
       </div>
       <div className="discover-block__row" id={id}>
-        {data.map(({ [imagesKey]: images, name }: any) => (
+        {data.map(({ [imagesKey]: images, name }) => (
           <DiscoverItem key={name} images={images} name={name} />
         ))}
       </div>

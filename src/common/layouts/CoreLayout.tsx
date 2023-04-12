@@ -3,7 +3,12 @@ import Header from '../components/Header';
 import SideBar from '../components/SideBar';
 import Player from '../components/Player';
 
-const CoreLayout: React.FC<any> = ({ children , history }) => {
+interface CoreLayoutProps {
+  children?: React.ReactNode;
+  history?: any;
+}
+
+const CoreLayout: React.FC<CoreLayoutProps> = ({ children , history }) => {
   return (
     <div className="main">
       <SideBar />

@@ -4,7 +4,11 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Hero } from '../../../assets/images/hero.svg';
 import './_header.scss';
 
-const Header: React.FC<any> = () => {
+interface HeaderProps {
+  history?: any; // TODO: hanya untuk test, nanti diubah tipe datanya
+}
+
+const Header: React.FC<HeaderProps> = () => {
   return (
     <div className="header">
       <Hero />
