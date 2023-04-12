@@ -4,16 +4,16 @@ import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons
 import DiscoverItem from './DiscoverItem';
 import '../styles/_discover-block.scss';
 
-function scrollContainer(id, { isNegative } = {}) {
+const scrollContainer: any = (id: any, { isNegative }: any = {}) => {
   return () => {
-    const scrollableContainer = document.getElementById(id);
+    const scrollableContainer: any = document.getElementById(id);
     const amount = isNegative ? -scrollableContainer.offsetWidth : scrollableContainer.offsetWidth;
 
     scrollableContainer.scrollLeft = scrollableContainer.scrollLeft + amount;
   };
 }
 
-export default function DiscoverBlock({ text, id, data, imagesKey = 'images' }) {
+const DiscoverBlock: React.FC<any> = ({ text, id, data, imagesKey = 'images' }) => {
   return (
     <div className="discover-block">
       <div className="discover-block__header">
@@ -35,10 +35,12 @@ export default function DiscoverBlock({ text, id, data, imagesKey = 'images' }) 
         }
       </div>
       <div className="discover-block__row" id={id}>
-        {data.map(({ [imagesKey]: images, name }) => (
+        {data.map(({ [imagesKey]: images, name }: any) => (
           <DiscoverItem key={name} images={images} name={name} />
         ))}
       </div>
     </div>
   );
 }
+
+export default DiscoverBlock;

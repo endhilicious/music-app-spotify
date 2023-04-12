@@ -2,6 +2,7 @@ import React from 'react';
 import cx from 'classnames';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
+  IconDefinition,
   faHeadphonesAlt,
   faHeart,
   faPlayCircle,
@@ -10,7 +11,17 @@ import {
 import { ReactComponent as Avatar } from '../../../assets/images/avatar.svg';
 import './_sidebar.scss';
 
-function renderSideBarOption(link, icon, text, { selected } = {}) {
+type SideBarOptionProps = {
+  selected?: boolean;
+};
+
+const renderSideBarOption = (
+  link: string,
+  icon: IconDefinition,
+  text: string,
+  { selected }: SideBarOptionProps = {}
+) => {
+
   return (
     <div
       className={cx('sidebar__option', { 'sidebar__option--selected': selected })}
@@ -18,7 +29,7 @@ function renderSideBarOption(link, icon, text, { selected } = {}) {
       <FontAwesomeIcon icon={icon} />
       <p>{text}</p>
     </div>
-  )
+  );
 }
 
 export default function SideBar() {

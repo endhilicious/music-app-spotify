@@ -4,7 +4,7 @@ import { faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
 import { ReactComponent as Hero } from '../../../assets/images/hero.svg';
 import './_header.scss';
 
-export default function Header() {
+const Header: React.FC<any> = () => {
   return (
     <div className="header">
       <Hero />
@@ -15,3 +15,5 @@ export default function Header() {
     </div>
   );
 }
+
+export default Header;

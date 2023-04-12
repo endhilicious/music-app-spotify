@@ -12,7 +12,7 @@ import { faRetweet } from '@fortawesome/free-solid-svg-icons';
 import { faVolumeDown } from '@fortawesome/free-solid-svg-icons';
 import './_player.scss';
 
-export default function Player() {
+const Player: React.FC = () => {
   return (
     <div className="player">
       <div className="player__album">
@@ -34,4 +34,6 @@ export default function Player() {
       </div>
     </div>
   );
-}
+};
+
+export default Player;

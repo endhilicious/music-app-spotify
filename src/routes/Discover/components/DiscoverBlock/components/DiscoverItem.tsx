@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/_discover-item.scss';
 
-export default function DiscoverItem({ images, name }) {
+const DiscoverItem: React.FC<any> = ({ images, name }) => {
   return (
     <div className="discover-item animate__animated animate__fadeIn">
       <div
@@ -12,3 +12,5 @@ export default function DiscoverItem({ images, name }) {
     </div>
   );
 }
+
+export default DiscoverItem;
